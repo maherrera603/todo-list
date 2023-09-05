@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="sistema de tareas">
+    <meta name="author" content="Miguel angel herrera vargas">
+    <meta name="copyright" content="Miguel angel herrera vargas">
+    <meta name="robots" content="index">
+    <meta http-equiv="cache-control" content="no-cache">
+    <script src="https://kit.fontawesome.com/ea233f63c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>todo list</title>
+</head>
+<body>
+    
+    {% include 'layouts/header.html' %}
+
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    
+    {% include 'layouts/footer.html' %}   
+
+    
+    {% block scripts %}{% endblock scripts %}    
+</body>
+</html>

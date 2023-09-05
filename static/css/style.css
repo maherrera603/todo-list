@@ -1,0 +1,362 @@
+:root{
+    --color-primary: green;
+    --color-secondary: #fff;
+    --background-color: #ccc;
+    --color-danger: red;
+}
+
+* {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: monospace;
+}
+
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+h1, h2{
+    font-size: xx-large;
+}
+
+h3{
+    font-size: 1.3rem;
+}
+ 
+header{
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+}
+
+.header{
+    width: 90%;
+    min-height: 50px;
+    height: 50px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    border-bottom: 1px solid var(--color-primary);
+}
+
+.header h1{
+    color: var(--color-primary);
+}
+
+.header nav{
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+}
+
+.header nav ul{
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header li{
+    margin: 10px 10px;
+}
+
+.header .user{
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+}
+
+.header li a{
+    color: var(--color-primary);
+    display: block;
+    width: 100%;
+    transition: all .3s ease;
+}
+
+.header li a:hover{
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-radius: 3px;
+}
+
+.container{
+    width: 100%;
+    min-height: 510px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid var(--color-primary);
+    text-align: center;
+    line-height: 50px;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+
+/* ERROR LIST */
+.errorlist{
+    color: red;
+    margin-bottom: 5px;
+}
+
+.form .errorlist{
+    text-align: center;
+}
+
+/* FORMS */
+form{
+    width: 50%;
+    min-height: 150px;
+}
+
+.form-header,
+.form-body,
+.form-footer{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form-header, 
+.form-footer{
+    background-color: var(--color-primary);
+    padding: 10px 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: var(--color-secondary);
+}
+
+.form-footer{
+    min-height: 40px;
+    height: 40px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: white;
+}
+
+.form-control,
+.form-actions{
+    width: 100%;
+    min-height: 30px;
+    max-height: 40px;
+    margin: 10px auto;
+}
+
+.form-control input{
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    outline-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 3px;
+}
+
+.form-actions button{
+    color: var(--color-primary);
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid var(--color-primary);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.form-actions button:hover{
+    padding: 7px 14px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+}
+
+/* TASKS */
+.form{
+    min-height: 50px;
+    max-height: auto;
+}
+
+.form .form-header{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form .form-header .add-tasks{
+    display: flex;
+    justify-content: flex-end;
+}
+.form .form-header .add-tasks input{
+    display: none;
+}
+
+.form .form-body .task-control{
+    display: grid;
+    grid-template-columns: 80% 18.3%;
+    width: 100%;
+    height: 0px;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    visibility: hidden;
+    transition: all .5s ease;
+}
+
+.form .form-body .task-active{
+    visibility: visible;
+    height: 30px;
+}
+
+.task-control textarea{
+    width: 95%;
+    margin: 0 auto;
+    outline: none;
+    padding: 4px 4px;
+    border: none;
+    border-bottom: 1px solid var(--color-primary);
+    resize: none;
+}
+
+.task-control button{
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form-header .add-tasks label{
+    height: 30px;
+    width: 30px;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 29px;
+    border-radius: 3px;
+    border: 1px solid var(--color-secondary);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.form-header .add-tasks label:hover{
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.list-tasks{
+    width: 45%;
+    min-height: 40px;
+    
+}
+
+.list-tasks li{
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    border-bottom: 1px solid var(--color-primary);
+    padding-left: 5px;
+    background-color: var(--color-secondary);
+}
+
+.list-tasks li.li-danger{
+    color: var(--color-danger);
+}
+
+.list-tasks li.li-success{
+    color: var(--color-primary);
+}
+
+.task-actions{
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+    align-items: center;
+    height: 40px;
+}
+
+.task-actions a{
+    margin: 0 10px;
+    display: block;
+    height: 40px;
+    transition: all 1s ease;
+}
+
+.task-actions a i{
+    font-size: 1.5rem;
+    line-height: 40px;
+}
+
+.task-actions .success{
+    color: var(--color-primary);
+}
+
+.task-actions .danger{
+    color: var(--color-danger);
+}
+
+.task-actions .success:hover,
+.task-actions .danger:hover{
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.pagination{
+    width: 45%;
+    height: 35px;
+    margin-top: 20px;
+}
+
+.pagination ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+}
+
+.pagination li{
+    margin: 0 5px;
+}
+
+.pagination li a{
+    display: block;
+    cursor: pointer;
+    color: var(--color-primary);
+    padding: 5px;
+    border-radius: 3px;
+    transition: all .3s ease;
+}
+
+.pagination li a:hover{
+    padding: 5px 10px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.pagination li a.selected{
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 5px 10px;
+}

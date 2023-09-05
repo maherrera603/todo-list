@@ -1,0 +1,17 @@
+<header>
+    <div class="header">
+        <h1>Todo List</h1>
+        <nav>
+            <ul>
+                {% if user.is_anonymous %}
+                <li><a href="{% url 'users_app:register' %}">Registrarse</a></li>
+                <li><a href="{% url 'users_app:login' %}">Iniciar Sesion</a></li>
+                {% else %}
+                    <li class="user">{{user.name}} {{user.lastname}}</li>
+                    <li><a href="{% url 'users_app:logout' %}">Salir</a></li>
+                {% endif %}
+                    
+            </ul>
+        </nav>
+    </div>
+</header>

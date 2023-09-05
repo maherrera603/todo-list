@@ -1,0 +1,5 @@
+__pycache__
+ettings.py
+applications/users/migrations/0001_initial.py
+applications/tasks/migrations/0001_initial.py
+local.py

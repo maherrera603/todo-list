@@ -1,0 +1,81 @@
+{% extends '../layouts/base.html' %}
+
+
+
+{% block content %}
+<form method="POST" class="form">
+    <div class="form-header">
+        <h3>Agregar Tarea</h3>
+        <div class="add-tasks">
+            <label for="add">+</label>
+            <input type="checkbox" id="add">
+        </div>
+        </div>
+        <div class="form-body">
+            {% csrf_token %}
+            <div class="task-control">
+                {{form.tasks}}
+                <button type="submit">Agregar</button>
+            </div>
+            {{ form.errors.tasks }}
+        </div>
+    </form>
+    
+    
+    <ul class="list-tasks">
+        {% for task in tasks %}
+            <li {% if task.status == 'Pendiente'%} class="li-danger" {% else %} class="li-success" {% endif %}>
+                {{task.task}}
+                <div class="task-actions">
+                    
+                    {% if task.status == "Pendiente"  %}
+                        <a href="{% url 'tasks_app:update' task.id%}" class="success"><i class="fa-solid fa-circle-check"></i></a>
+                    {% endif %}
+                    <a href="{% url 'tasks_app:delete' task.id %}" class="danger"><i class="fa-solid fa-circle-minus"></i></a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+            
+
+    
+    {% if is_paginated %}
+        <nav class="pagination">
+            <ul>
+                
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{page_obj.previous_page_number}}">Atras</a></li>
+                {% endif %}
+                
+                
+                {% for page in paginator.page_range %}
+                
+                    {% if page == page_obj.number %}
+                        <li><a class="selected">{{page}}</a></li>
+                    {% else %}
+                        <li><a href="?page={{page}}">{{page}}</a></li>
+                    {% endif %}
+                    
+
+                {% endfor %}
+                    
+                
+                
+                {% if  page_obj.has_next%}
+                    <li><a href="?page={{page_obj.next_page_number}}">Siguiente</a></li>
+                    
+                {% endif %}
+                    
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock content %}
+
+
+{% block scripts %}
+    {% load static %}
+    <script src="{% static 'js/task.js' %}"></script>
+{% endblock scripts %}
+    
+    
+
